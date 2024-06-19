@@ -15,6 +15,10 @@ function getComputerChoice(){
 getComputerChoice()
 
 //Get input from player
+
+let getHumanChoice = prompt('What will you play?', " ");
+console.log(getHumanChoice)
+
 //Compare the results
 //Declare the winner 
 //Repeat the game for 5 rounds
