@@ -31,16 +31,22 @@ function playRound(humanChoice, computerChoice){
     if (humanChoice == computerChoice){
         console.log("It's a draw!");
     } else if (humanChoice == "rock" && computerChoice == "scissors"){
+        humanScore += 1;
         console.log(humanWin);
     } else if (humanChoice == "rock" && computerChoice == "paper"){
+        computerScore += 1;
         console.log(computerWin);
     } else if (humanChoice == "scissors" && computerChoice == "paper"){
+        humanScore += 1;
         console.log(humanWin);
     } else if (humanChoice == "scissors" && computerChoice == "rock"){
+        computerScore += 1;
         console.log(computerWin);
     } else if (humanChoice == "paper" && computerChoice == "scissors"){
+        computerScore += 1;
         console.log(computerWin);
     } else if (humanChoice == "paper" && computerChoice == "rock"){
+        humanScore += 1;
         console.log(humanWin);
     }
 }
