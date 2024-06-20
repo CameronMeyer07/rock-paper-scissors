@@ -1,25 +1,54 @@
-//Get input from computer
+// Computer input function
 
 function getComputerChoice(){
-
-    let computerChoice = Math.floor(Math.random() * 3);
-
-    if (computerChoice == 0){
-        console.log('rock');
-    } else if (computerChoice == 1){
-        console.log('paper');
+    let choice = Math.floor(Math.random() * 3);
+        if (choice === 0){
+        return "rock";
+    } else if (choice === 1){
+        return "scissors";
     } else {
-        console.log('scissor');
+        return "paper";
     }
 }
-getComputerChoice()
+// User input function
 
-//Get input from player
+function getHumanChoice(){
+    let choice = prompt("Rock, Paper, Scissors?", "");
+    choice = choice.toLowerCase();
+    return choice;
+}
+// Score variables
 
-let getHumanChoice = prompt('What will you play?', " ");
-console.log(getHumanChoice)
+let humanScore = 0;
+let computerScore = 0;
 
-//Compare the results
-//Declare the winner 
-//Repeat the game for 5 rounds
-//After best of 5 rounds anounce overall winner
+// Function to play game
+
+function playRound(humanChoice, computerChoice){
+    let humanWin = `You win! ${humanChoice} beats ${computerChoice}!`;
+    let computerWin = `You lose! ${computerChoice} beats ${humanChoice}!`;
+
+    if (humanChoice == computerChoice){
+        console.log("It's a draw!");
+    } else if (humanChoice == "rock" && computerChoice == "scissors"){
+        console.log(humanWin);
+    } else if (humanChoice == "rock" && computerChoice == "paper"){
+        console.log(computerWin);
+    } else if (humanChoice == "scissors" && computerChoice == "paper"){
+        console.log(humanWin);
+    } else if (humanChoice == "scissors" && computerChoice == "rock"){
+        console.log(computerWin);
+    } else if (humanChoice == "paper" && computerChoice == "scissors"){
+        console.log(computerWin);
+    } else if (humanChoice == "paper" && computerChoice == "rock"){
+        console.log(humanWin);
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+// Recurring rounds for game
+// End game
