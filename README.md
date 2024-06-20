@@ -13,3 +13,9 @@ wrong results because of that.
 
 Debugging is a skill on it's own
 A very valuable one at that
+
+After struggling through a couple of hours of debugging
+Finally the program started working
+
+the debugging continued and the final product is the result 
+of a lot of google searches and videos about operators and functions
