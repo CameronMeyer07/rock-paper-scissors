@@ -73,7 +73,9 @@ for (let i=0; i<5; i++){
         alert (`You win! Scores human:${humanScore} computer:${computerScore}`);
     } else if(humanScore < computerScore){
         alert (`You lose! Scores human:${humanScore} computer:${computerScore}`);
-}
+    } else {
+        alert (`It's a draw! Scores human:${humanScore} computer:${computerScore}`)
+    }
 }
 playGame(); 
    
