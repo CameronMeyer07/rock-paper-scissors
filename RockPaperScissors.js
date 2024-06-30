@@ -1,83 +1,67 @@
-// Computer input function
+const selections = ["🪨", "✋", "✂️"];
+const yourScore = document.querySelector(".yourScore");
+const compScore = document.querySelector(".compScore");
+const roundResult = document.querySelector(".roundResult");
+const yourScoreDisplay = document.querySelector("#yourScoreDisplay");
+const compScoreDisplay = document.querySelector("#compScoreDisplay");
+let playerScore = 0;
+let oppScore = 0;
 
-function getComputerChoice(){
-    let choice = Math.floor(Math.random() * 3);
-        if (choice === 0){
-        return "rock";
-    } else if (choice === 1){
-        return "scissors";
+
+function playGame(yourChoice) {
+
+    const compChoice = selections[Math.floor(Math.random() * 3)];
+    let result = "";
+    const playerWin = `You win! ${yourChoice} beats ${compChoice}`
+    const compWin = `You lose! ${compChoice} beats ${yourChoice}`;
+        if (playerScore < 5 && oppScore < 5){
+       if(yourChoice === compChoice)
+        {
+        result = "It's a tie!";
+         } else {
+        switch(yourChoice){
+
+            case "🪨":
+                result = (compChoice === '✂️') ? `${playerWin}` : `${compWin}`;
+                break;
+
+            case "✋":
+                result = (compChoice === '🪨') ? `${playerWin}` : `${compWin}`;
+                break;
+
+            case "✂️":
+                result = (compChoice === '✋') ? `${playerWin}` : `${compWin}`;
+                break
+                
+        }
+    }
+    
+    switch(result){
+        case `${playerWin}`:
+            playerScore++;
+            yourScoreDisplay.textContent = playerScore;
+            break;
+
+        case `${compWin}`:
+            oppScore++;
+            compScoreDisplay.textContent = oppScore;
+            break;
+
+    }
+
+    yourScore.textContent = `PLAYER: ${playerScore}`;
+    compScore.textContent = `COMPUTER: ${oppScore}`;
+    roundResult.textContent = result;
+} else {
+    if(playerScore === 5){
+        roundResult.textContent = 'You Win!';
+    } else if(oppScore === 5){
+        roundResult.textContent = 'You Lose!';
     } else {
-        return "paper";
+        roundResult.textContent = "It's a Draw!"
     }
 }
-// User input function
 
-function getHumanChoice(){
-    let choice = prompt("Rock, Paper, Scissors?", "");
-    choice = choice.toLowerCase();
-    return choice;
-}
+};
 
-// Function to play game
 
-function playRound(humanChoice, computerChoice){
-        let humanWin = `You win! ${humanChoice} beats ${computerChoice}!`;
-        let computerWin = `You lose! ${computerChoice} beats ${humanChoice}!`;
-
-        if (humanChoice == computerChoice){
-        console.log("It's a draw!");
-        } else if (humanChoice == "rock" && computerChoice == "scissors"){
-        console.log(humanWin);
-        return 'humanWin';
-        } else if (humanChoice == "rock" && computerChoice == "paper"){
-        console.log(computerWin);
-        return 'computerWin'
-        } else if (humanChoice == "scissors" && computerChoice == "paper"){
-        console.log(humanWin);
-        return 'humanWin';
-        } else if (humanChoice == "scissors" && computerChoice == "rock"){
-        console.log(computerWin);
-        return 'computerWin';
-        } else if (humanChoice == "paper" && computerChoice == "scissors"){
-        console.log(computerWin);
-        return 'computerWin';
-        } else if (humanChoice == "paper" && computerChoice == "rock"){
-        console.log(humanWin); 
-        return 'humanWin';
-    }
-} 
-
-function playGame(){
-
-// Score variables
-
-let humanScore = 0;
-let computerScore = 0;
-
-let humanWin = `You win! ${getHumanChoice} beats ${getComputerChoice}!`;
-let computerWin = `You lose! ${getComputerChoice} beats ${getHumanChoice}!`;
-
-for (let i=0; i<5; i++){
-    let resultRound = playRound(getHumanChoice(), getComputerChoice());
-       if (resultRound === 'humanWin'){
-        humanScore+= 1;
-        console.log(`human:${humanScore} computer:${computerScore}`);
-    } else if (resultRound === 'computerWin'){
-        computerScore+= 1;
-        console.log(`human:${humanScore} computer:${computerScore}`);
-    } else {
-        console.log(`human:${humanScore} computer:${computerScore}`)
-    }
-}
-    if(humanScore > computerScore){
-        alert (`You win! Scores human:${humanScore} computer:${computerScore}`);
-    } else if(humanScore < computerScore){
-        alert (`You lose! Scores human:${humanScore} computer:${computerScore}`);
-    } else {
-        alert (`It's a draw! Scores human:${humanScore} computer:${computerScore}`)
-    }
-}
-playGame(); 
-   
-// Recurring rounds for game
-// End game

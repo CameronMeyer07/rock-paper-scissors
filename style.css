@@ -1,0 +1,30 @@
+body {
+    background-color: grey;
+    text-align: center;
+}
+
+.selection {
+    border: none;
+    outline: none;
+    font-size: 50px;
+    background: none;
+    cursor: pointer;
+}
+
+.selection:hover {
+    transform: scale(1.2);
+    transition: 100ms;
+}
+
+.results-choices {
+    margin-top: 20px;
+}
+
+.yourScore, .compScore {
+    font-size: 30px;
+}
+
+.roundResult {
+    font-size: 50px;
+    font-weight: bold;
+}

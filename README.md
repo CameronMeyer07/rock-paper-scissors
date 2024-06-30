@@ -19,3 +19,12 @@ Finally the program started working
 
 the debugging continued and the final product is the result 
 of a lot of google searches and videos about operators and functions
+
+Coming back to the RPS game after delving deeper into some JS made it somewhat problematic.
+I kept trying to find a solution on how to add event listeners and how to connect them to the current code.
+I then decided to scrap the code and start over.
+hence the code looks entirely different than the initial commits.
+
+Figuring out how to end the game when the scores reached 5 was a nightmare.
+Trial and error helped but hopefully in the future I'll be able to solve the 
+problem quicker.
